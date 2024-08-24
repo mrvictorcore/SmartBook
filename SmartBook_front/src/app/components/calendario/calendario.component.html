@@ -1,2 +1,24 @@
 <h2>Calendario</h2>
-<div [innerHTML]="calendario"></div>
+<div id="calendario">
+  <h3>{{ mesActual }} {{ anioActual }}</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Dom</th>
+        <th>Lun</th>
+        <th>Mar</th>
+        <th>Mié</th>
+        <th>Jue</th>
+        <th>Vie</th>
+        <th>Sáb</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let semana of calendarioDias">
+        <td *ngFor="let dia of semana" [ngClass]="{ 'empty-day': !dia }">
+          {{ dia || '' }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

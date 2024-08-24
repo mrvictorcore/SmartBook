@@ -1,4 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+/* Fuente Importada */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 html, body {
     margin: 0;
     padding: 0;
@@ -8,18 +10,21 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: #f0e6d2;
-  }
-  body {
+}
+
+body {
     font-family: 'Courier New', Courier, monospace;
-  }
-  .notebook-container {
+}
+
+.notebook-container {
     width: 90vw;
     height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .notebook {
+}
+
+.notebook {
     background-color: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
     border-radius: 0 10px 10px 0;
@@ -31,8 +36,10 @@ html, body {
     position: relative;
     overflow: hidden;
     display: flex;
-  }
-  .notebook::before {
+    flex-direction: column;
+}
+
+.notebook::before {
     content: '';
     position: absolute;
     top: 0;
@@ -40,62 +47,61 @@ html, body {
     height: 100%;
     width: 2px;
     background-color: #ff9999;
-  }
-  .page {
+}
+
+.page {
     background-image: repeating-linear-gradient(#f9f9f9 0px, #f9f9f9 24px, #88a 25px);
     padding: 0 0 0 50px;
-    line-height: 25px;
+    line-height: 28px;
     font-size: 16px;
     flex-grow: 1;
     border-right: 2px solid #88a;
     position: relative;
     z-index: 1;
-    overflow-y: scroll; /* Cambiado de auto a scroll */
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
 
-    /* Ocultar la barra de desplazamiento */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer y Edge */
-  }
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
 
-  .page::-webkit-scrollbar {
-    width: 0px;  /* Safari and Chrome */
-    background: transparent;  /* Make the scrollbar invisible */
-  }
-
-  .lista-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Ocupa toda la altura disponible */
-  }
-
-  .header {
-    flex-shrink: 0; /* Evita que el encabezado se reduzca */
-    padding-bottom: 10px; /* Espacio debajo del encabezado */
-    position: sticky; /* Mantiene el encabezado fijo */
-    top: 0; /* Fija el encabezado en la parte superior */
-    z-index: 10; /* Asegura que el encabezado esté por encima de otros elementos */
-    background-image: repeating-linear-gradient(#f9f9f9 0px, #f9f9f9 24px, #88a 25px);
-    background-color: transparent; /* Asegura que el fondo se mezcle con el cuaderno */
-  }
-
-  .list-content {
-    flex-grow: 1; /* Permite que la lista ocupe el espacio restante */
-    overflow-y: auto; /* Habilita el scroll solo en esta área */
-  }
-
-  /* Ocultar la barra de desplazamiento en la lista */
-  .list-content::-webkit-scrollbar {
-    width: 0px; /* Para Chrome, Safari y Opera */
+.page::-webkit-scrollbar {
+    width: 0px;
     background: transparent;
-  }
-  .list-content {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer y Edge */
-  }
+}
 
-  textarea {
+.lista-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header {
+    flex-shrink: 0;
+    padding-bottom: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-image: repeating-linear-gradient(#f9f9f9 0px, #f9f9f9 24px, #88a 25px);
+    background-color: transparent;
+}
+
+.list-content {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.list-content::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+.list-content {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+textarea {
     width: calc(100% - 16px);
     padding: 8px;
     margin: 5px 0;
@@ -103,39 +109,40 @@ html, body {
     border: 1px solid #88a;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
-  }
+    font-size: 14px; /* Tamaño de fuente ajustado */
+}
 
-  .item-content {
-    word-wrap: break-word; /* Permite que el texto se ajuste al ancho del contenedor */
-    word-break: break-word; /* Rompe palabras largas que no caben en una línea */
-    white-space: pre-wrap; /* Mantiene los saltos de línea en el texto */
+.item-content {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
     flex-grow: 1;
     margin-right: 10px;
-  }
+}
 
-  ul {
+ul {
     list-style-type: none;
     padding: 0;
     margin-left: 20px;
     margin-right: 20px;
-  }
+}
 
-  li {
+li {
     margin: 5px 0;
     padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px dashed #88a;
-  }
+}
 
-  .delete {
+.delete {
     color: #ff6666;
     cursor: pointer;
     font-weight: bold;
-  }
+}
 
-  .notebook-binding {
+.notebook-binding {
     position: absolute;
     left: 0;
     top: 0;
@@ -148,8 +155,9 @@ html, body {
     justify-content: space-around;
     align-items: center;
     z-index: 2;
-  }
-  .notebook-binding::before {
+}
+
+.notebook-binding::before {
     content: '';
     position: absolute;
     left: 0;
@@ -157,15 +165,17 @@ html, body {
     bottom: 0;
     width: 10px;
     background: linear-gradient(to right, #5a2d0c, #8b4513);
-  }
-  .buckle {
+}
+
+.buckle {
     width: 30px;
     height: 10px;
     background-color: #d4af37;
     border-radius: 5px;
     position: relative;
-  }
-  .buckle::before, .buckle::after {
+}
+
+.buckle::before, .buckle::after {
     content: '';
     position: absolute;
     width: 6px;
@@ -173,24 +183,30 @@ html, body {
     background-color: #b8860b;
     border-radius: 50%;
     top: 2px;
-  }
-  .buckle::before {
+}
+
+.buckle::before {
     left: 5px;
-  }
-  .buckle::after {
+}
+
+.buckle::after {
     right: 5px;
-  }
-  .title-container {
+}
+
+.title-container {
     flex-shrink: 0;
     padding-bottom: 10px;
     border-bottom: 2px solid #88a;
-  }
-  h1, h2 {
+}
+
+h1, h2 {
     font-family: 'Bradley Hand', cursive;
     color: #333;
     margin-top: 0;
-  }
-  .tab {
+    font-size: 24px; /* Tamaño de fuente ajustado */
+}
+
+.tab {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -198,8 +214,11 @@ html, body {
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-  }
-  .tab button {
+    max-width: 10%;
+    max-height: 100%;
+}
+
+.tab button {
     background-color: #f0d6a8;
     border: none;
     outline: none;
@@ -215,14 +234,15 @@ html, body {
     transform: rotate(180deg);
     box-shadow: -2px 0 5px rgba(0,0,0,0.1);
     color: #5a4a2f;
-    height: 120px;
-    width: 30px;
+    height: 110px;
+    width: 35px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .tab button::before {
+}
+
+.tab button::before {
     content: '';
     position: absolute;
     top: 0;
@@ -231,41 +251,58 @@ html, body {
     height: 100%;
     background: linear-gradient(to left, rgba(255,255,255,0.2), transparent);
     pointer-events: none;
-  }
-  .tab button:hover {
+}
+
+.tab button:hover {
     background-color: #e6c38d;
-  }
-  .tab button.active {
+}
+
+.tab button.active {
     background-color: #ffc107;
     color: #fff;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  }
-  .tabcontent {
+}
+
+.tabcontent {
     display: none;
     padding-left: 20px;
     padding-right: 40px;
     height: calc(100% - 40px);
     overflow-y: auto;
-  }
-  #ListaCompra {
+}
+
+#ListaCompra {
     overflow-y: scroll;
-    scrollbar-width: none; /* Para Firefox */
-    -ms-overflow-style: none;  /* Para Internet Explorer y Edge */
-  }
-  #ListaCompra::-webkit-scrollbar {
-    width: 0px;  /* Para Chrome, Safari y Opera */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#ListaCompra::-webkit-scrollbar {
+    width: 0px;
     background: transparent;
-  }
-  input[type="text"], input[type="number"], textarea {
-    width: calc(100% - 16px);
+}
+
+input[type="text"], input[type="number"], textarea {
+    width: calc(100% - 80px);
     padding: 8px;
     margin: 5px 0;
     box-sizing: border-box;
     border: 1px solid #88a;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
-  }
-  button {
+    font-size: 14px; /* Tamaño de fuente ajustado */
+}
+
+input[type="date" i] {
+    font-family: monospace;
+    padding-inline-start: 1px;
+    cursor: default;
+    padding: 0px;
+    overflow: hidden;
+    margin: 0 10px 0 0;
+}
+
+button {
     background-color: #88a;
     color: white;
     padding: 8px 15px;
@@ -274,47 +311,235 @@ html, body {
     font-family: 'Bradley Hand', cursive;
     border-radius: 5px;
     transition: background-color 0.3s;
-  }
-  button:hover {
+    margin: 5px 5px 0 0;
+    font-size: 14px; /* Tamaño de fuente ajustado */
+}
+
+button:hover {
     background-color: #779;
-  }
-  ul {
+}
+
+ul {
     list-style-type: none;
     padding: 0;
     margin-left: 20px;
     margin-right: 20px;
-  }
-  li {
+}
+
+li {
     margin: 5px 0;
     padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px dashed #88a;
-  }
-  .delete {
+}
+
+.delete {
     color: #ff6666;
     cursor: pointer;
     font-weight: bold;
-  }
-  #saldoActual {
+}
+
+#saldoActual {
     font-weight: bold;
     color: #4a4;
-  }
-  .item-content {
+}
+
+.item-content {
     flex-grow: 1;
     margin-right: 10px;
-  }
-  #calendario table {
-    width: 100%;
+    font-size: 14px; /* Tamaño de fuente ajustado */
+}
+
+#calendario {
+    text-align: left;
+    font-family: 'Indie Flower', cursive;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+#calendario h3 {
+    margin-bottom: 12px;
+    font-size: 26px;
+    font-family: 'Indie Flower', cursive;
+    text-align: left;
+    margin-left: 0;
+}
+
+#calendario table {
+    width: auto;
     border-collapse: collapse;
-  }
-  #calendario th, #calendario td {
-    border: 1px solid #88a;
+    margin: 0;
+}
+
+#calendario th, #calendario td {
+    border: none;
     text-align: center;
-    padding: 5px;
-  }
-  #calendario th {
-    background-color: #f0d6a8;
-  }
-  
+    padding: 6px 4px;
+    font-size: 24px;
+    background: none;
+    min-width: 50px;
+    width: 50px;
+}
+
+#calendario th {
+    color: #333;
+    background-color: transparent;
+}
+
+#calendario td {
+    height: auto;
+    background-color: transparent;
+}
+
+.empty-day {
+    background-color: transparent;
+}
+
+/* Responsividad para pantallas con max-width igual a 768px */
+@media screen and (max-width: 768px) {
+    .notebook {
+        padding: 2vh;
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 0 5px 5px 0;
+    }
+
+    .page {
+        padding: 0 0 0 5vw;
+        line-height: 3vh;
+        font-size: 2vh;
+    }
+
+    .notebook-binding {
+        width: 6vw;
+    }
+
+    .buckle {
+        width: 4vw;
+        height: 1.5vh;
+    }
+
+    h1, h2 {
+        font-size: 3.5vh;
+    }
+
+    #calendario h3 {
+        font-size: 3vh;
+        margin-bottom: 2vh;
+    }
+
+    #calendario th, #calendario td {
+        padding: 0.6vh 0.5vw;
+        font-size: 1.8vh;
+        min-width: 3vh;
+        width: 3vh;
+    }
+
+    input[type="text"], input[type="number"], textarea {
+        width: calc(100% - 5vw);
+        padding: 1vh;
+        font-size: 1.8vh;
+    }
+
+    button {
+        padding: 1.5vh 2vw;
+        font-size: 1.8vh;
+    }
+
+    ul {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    li {
+        padding: 1vh;
+    }
+
+    .tab button {
+        width: 8vw; /* Ajuste del ancho para pantallas menores a 768px */
+    }
+}
+
+/* Responsividad para pantallas con max-height menor a 768px */
+@media screen and (max-height: 768px) {
+    .tab button {
+        padding: 1vh 1vw;
+        font-size: 1.6vw;
+        height: 12vh; /* Aumenta la altura para mejorar visibilidad */
+    }
+}
+
+/* Ajuste específico para max-height menor a 740px */
+@media screen and (max-height: 740px) {
+    .tab button {
+        height: 14vh; /* Mantener una mayor altura */
+        font-size: 2.5vw; /* Aumentar el tamaño de fuente */
+    }
+
+    .notebook {
+        padding: 2vh;
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+
+    .page {
+        line-height: 2.5vh;
+        font-size: 1.8vh;
+    }
+
+    h1, h2 {
+        font-size: 3vh;
+    }
+
+    #calendario h3 {
+        font-size: 3.2vh; /* Aumentar tamaño en el calendario */
+        margin-bottom: 2.2vh;
+    }
+
+    #calendario th, #calendario td {
+        padding: 0.8vh 0.6vw; /* Aumentar padding para mayor legibilidad */
+        font-size: 2vh;
+        min-width: 3.5vh;
+        width: 3.5vh;
+    }
+}
+
+/* Ajuste específico para max-height menor a 600px */
+@media screen and (max-height: 600px) {
+    .tab button {
+        height: 12vh; /* Reducir la altura */
+        font-size: 1vw; /* Reducir el tamaño de fuente */
+    }
+
+    .notebook {
+        padding: 1.5vh;
+        max-width: 85vw;
+        max-height: 85vh;
+    }
+
+    .page {
+        line-height: 2.2vh;
+        font-size: 1.4vh;
+    }
+
+    h1, h2 {
+        padding: 1.5vh;
+        font-size: 4vh;
+    }
+
+    #calendario h3 {
+        padding: 1.5vh;
+        font-size: 3.5vh; /* Aumentar el tamaño del calendario */
+        margin-bottom: 3vh;
+    }
+
+    #calendario th, #calendario td {
+        padding: 1.1vh 1vw;
+        font-size: 3vh;
+        min-width: 4.5vh;
+        width: 4.5vh;
+    }
+}

@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calendario.component.css']
 })
 export class CalendarioComponent implements OnInit {
-  calendario: string = '';
+  mesActual: string = '';
+  anioActual: number = 0;
+  calendarioDias: number[][] = [];
 
   ngOnInit(): void {
     this.generarCalendario();
@@ -16,29 +18,28 @@ export class CalendarioComponent implements OnInit {
     const hoy = new Date();
     const mes = hoy.getMonth();
     const anio = hoy.getFullYear();
+    this.mesActual = hoy.toLocaleString('default', { month: 'long' });
+    this.anioActual = anio;
+
+    const primerDiaMes = new Date(anio, mes, 1).getDay();
     const diasEnMes = new Date(anio, mes + 1, 0).getDate();
 
-    let html = `<h3>${hoy.toLocaleString('default', { month: 'long' })} ${anio}</h3>`;
-    html += '<table><tr><th>Dom</th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th></tr>';
-
     let dia = 1;
+    this.calendarioDias = [];
+
     for (let i = 0; i < 6; i++) {
-      html += '<tr>';
+      const semana: number[] = [];
       for (let j = 0; j < 7; j++) {
-        if (i === 0 && j < new Date(anio, mes, 1).getDay()) {
-          html += '<td></td>';
+        if (i === 0 && j < primerDiaMes) {
+          semana.push(0); // Días vacíos antes del inicio del mes
         } else if (dia > diasEnMes) {
-          html += '<td></td>';
+          semana.push(0); // Días vacíos después del final del mes
         } else {
-          html += `<td>${dia}</td>`;
+          semana.push(dia);
           dia++;
         }
       }
-      html += '</tr>';
-      if (dia > diasEnMes) break;
+      this.calendarioDias.push(semana);
     }
-    html += '</table>';
-
-    this.calendario = html;
   }
 }

@@ -1,9 +1,11 @@
 <div class="lista-container">
   <div class="header">
     <h2>Objetivos de Ahorro</h2>
-    <input type="text" [(ngModel)]="objetivoInput" placeholder="Objetivo">
-    <input type="number" [(ngModel)]="montoObjetivoInput" placeholder="Monto objetivo">
-    <button (click)="agregarObjetivo()">Agregar Objetivo</button>
+    <form [formGroup]="objetivosForm">
+      <input type="text" formControlName="objetivoInput" placeholder="Objetivo">
+      <input type="number" formControlName="montoObjetivoInput" placeholder="Monto objetivo">
+      <button type="button" (click)="agregarObjetivo()">Agregar Objetivo</button>
+    </form>
   </div>
   <div class="list-content">
     <ul>

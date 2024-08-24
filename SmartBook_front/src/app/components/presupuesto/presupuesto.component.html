@@ -1,9 +1,11 @@
 <div class="lista-container">
   <div class="header">
     <h2>Presupuesto</h2>
-    <input type="text" [(ngModel)]="categoriaInput" placeholder="Categoría">
-    <input type="number" [(ngModel)]="limiteInput" placeholder="Límite mensual">
-    <button (click)="agregarCategoria()">Agregar Categoría</button>
+    <form [formGroup]="presupuestoForm">
+      <input type="text" formControlName="categoriaInput" placeholder="Categoría">
+      <input type="number" formControlName="limiteInput" placeholder="Límite mensual">
+      <button type="button" (click)="agregarCategoria()">Agregar Categoría</button>
+    </form>
   </div>
   <div class="list-content">
     <ul>

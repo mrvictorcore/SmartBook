@@ -3,9 +3,11 @@
     <h2>Cartera y Gastos</h2>
     <div>
       <h3>Saldo Actual: <span id="saldoActual">{{ saldo.toFixed(2) }}</span> €</h3>
-      <input type="number" [(ngModel)]="montoInput" placeholder="Monto">
-      <button (click)="agregarFondos()">Agregar Fondos</button>
-      <button (click)="registrarGasto()">Registrar Gasto</button>
+      <form [formGroup]="carteraForm">
+        <input type="number" formControlName="montoInput" placeholder="Monto">
+        <button type="button" (click)="agregarFondos()">Agregar Fondos</button>
+        <button type="button" (click)="registrarGasto()">Registrar Gasto</button>
+      </form>
     </div>
     <h3>Historial de Transacciones</h3>
   </div>

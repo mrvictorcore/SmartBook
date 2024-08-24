@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cartera',
@@ -7,22 +8,30 @@ import { Component } from '@angular/core';
 })
 export class CarteraComponent {
   saldo: number = 0;
-  montoInput: number = 0;
   transacciones: { fecha: string, tipo: string, monto: number }[] = [];
+  carteraForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.carteraForm = this.fb.group({
+      montoInput: [0, [Validators.required, Validators.min(1)]]
+    });
+  }
 
   agregarFondos(): void {
-    if (this.montoInput > 0) {
-      this.saldo += this.montoInput;
-      this.registrarTransaccion('Ingreso', this.montoInput);
-      this.montoInput = 0;
+    const monto = this.carteraForm.value.montoInput;
+    if (monto > 0) {
+      this.saldo += monto;
+      this.registrarTransaccion('Ingreso', monto);
+      this.carteraForm.reset();
     }
   }
 
   registrarGasto(): void {
-    if (this.montoInput > 0 && this.montoInput <= this.saldo) {
-      this.saldo -= this.montoInput;
-      this.registrarTransaccion('Gasto', -this.montoInput);
-      this.montoInput = 0;
+    const monto = this.carteraForm.value.montoInput;
+    if (monto > 0 && monto <= this.saldo) {
+      this.saldo -= monto;
+      this.registrarTransaccion('Gasto', -monto);
+      this.carteraForm.reset();
     } else {
       alert('Fondos insuficientes o monto inválido.');
     }

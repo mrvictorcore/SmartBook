@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 
@@ -14,7 +14,6 @@ import { CalendarioComponent } from './components/calendario/calendario.componen
 import { RecordatoriosComponent } from './components/recordatorios/recordatorios.component';
 import { PresupuestoComponent } from './components/presupuesto/presupuesto.component';
 import { ObjetivosComponent } from './components/objetivos/objetivos.component';
-
 
 @NgModule({
   declarations: [
@@ -31,7 +30,7 @@ import { ObjetivosComponent } from './components/objetivos/objetivos.component';
   imports: [
     CommonModule,
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
   ],
   providers: [],

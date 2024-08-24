@@ -1,9 +1,11 @@
 <div class="lista-container">
   <div class="header">
     <h2>Recordatorios</h2>
-    <input type="text" [(ngModel)]="recordatorioInput" placeholder="Nuevo recordatorio...">
-    <input type="date" [(ngModel)]="fechaRecordatorio">
-    <button (click)="agregarRecordatorio()">Agregar Recordatorio</button>
+    <form [formGroup]="recordatoriosForm">
+      <input type="text" formControlName="recordatorioInput" placeholder="Nuevo recordatorio...">
+      <input type="date" formControlName="fechaRecordatorio">
+      <button type="button" (click)="agregarRecordatorio()">Agregar Recordatorio</button>
+    </form>
   </div>
   <div class="list-content">
     <ul>

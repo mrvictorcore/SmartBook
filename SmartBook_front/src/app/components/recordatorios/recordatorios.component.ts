@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recordatorios',
@@ -6,15 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./recordatorios.component.css']
 })
 export class RecordatoriosComponent {
-  recordatorioInput: string = '';
-  fechaRecordatorio: string = '';
+  recordatoriosForm: FormGroup;
   recordatorios: { texto: string, fecha: string }[] = [];
 
+  constructor(private fb: FormBuilder) {
+    this.recordatoriosForm = this.fb.group({
+      recordatorioInput: ['', Validators.required],
+      fechaRecordatorio: ['', Validators.required]
+    });
+  }
+
   agregarRecordatorio(): void {
-    if (this.recordatorioInput && this.fechaRecordatorio) {
-      this.recordatorios.push({ texto: this.recordatorioInput, fecha: this.fechaRecordatorio });
-      this.recordatorioInput = '';
-      this.fechaRecordatorio = '';
+    if (this.recordatoriosForm.valid) {
+      this.recordatorios.push({
+        texto: this.recordatoriosForm.value.recordatorioInput,
+        fecha: this.recordatoriosForm.value.fechaRecordatorio
+      });
+      this.recordatoriosForm.reset();
     }
   }
 

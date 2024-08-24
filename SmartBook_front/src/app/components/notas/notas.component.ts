@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-notas',
@@ -6,13 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./notas.component.css']
 })
 export class NotasComponent {
-  notas: string = '';
+  notasForm: FormGroup;
   listaNotas: { texto: string }[] = [];
 
+  constructor(private fb: FormBuilder) {
+    this.notasForm = this.fb.group({
+      notas: ['', Validators.required]
+    });
+  }
+
   guardarNotas(): void {
-    if (this.notas.trim()) {
-      this.listaNotas.push({ texto: this.notas.trim() });
-      this.notas = '';
+    if (this.notasForm.valid) {
+      this.listaNotas.push({ texto: this.notasForm.value.notas.trim() });
+      this.notasForm.reset();
     }
   }
 

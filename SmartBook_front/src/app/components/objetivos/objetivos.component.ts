@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-objetivos',
@@ -6,15 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./objetivos.component.css']
 })
 export class ObjetivosComponent {
-  objetivoInput: string = '';
-  montoObjetivoInput: number = 0;
+  objetivosForm: FormGroup;
   objetivos: { nombre: string, monto: number }[] = [];
 
+  constructor(private fb: FormBuilder) {
+    this.objetivosForm = this.fb.group({
+      objetivoInput: ['', Validators.required],
+      montoObjetivoInput: [0, [Validators.required, Validators.min(1)]]
+    });
+  }
+
   agregarObjetivo(): void {
-    if (this.objetivoInput && this.montoObjetivoInput > 0) {
-      this.objetivos.push({ nombre: this.objetivoInput, monto: this.montoObjetivoInput });
-      this.objetivoInput = '';
-      this.montoObjetivoInput = 0;
+    if (this.objetivosForm.valid) {
+      this.objetivos.push({
+        nombre: this.objetivosForm.value.objetivoInput,
+        monto: this.objetivosForm.value.montoObjetivoInput
+      });
+      this.objetivosForm.reset();
     }
   }
 

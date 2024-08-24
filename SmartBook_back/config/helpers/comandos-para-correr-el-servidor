@@ -1,0 +1,65 @@
+# Comando para correr en desarrollo:
+NODE_ENV=development npm start
+
+# Comando para correr en producción:
+NODE_ENV=production npm run build
+NODE_ENV=production node server.js
+
+
+
+
+##Pasos: Ejecutar en desarrollo y producción desde archivos independientes:
+
+    #Para desarrollo:
+        --Iniciar el backend: Este comando iniciará el servidor con nodemon y cargará el archivo .env.development.
+            # Instalar dependencias
+                npm install
+
+            # Iniciar el backend en desarrollo
+                npm run dev
+
+        --Iniciar el frontend: Esto iniciará el servidor de desarrollo de Angular en el puerto 4200 y usará el archivo .env.development.
+            # Instalar dependencias
+                npm install
+
+            # Iniciar el frontend en desarrollo
+                npm run start:dev
+
+
+
+
+    #Para producción:
+        --Iniciar el backend: Este comando iniciará el servidor en modo producción y cargará el archivo .env.production.
+            # Instalar dependencias
+                npm install
+
+            # Iniciar el backend en producción
+                npm start
+
+        --Construir el frontend: Esto compilará la aplicación Angular y colocará los archivos generados en la carpeta dist/my-home-stock.
+            # Instalar dependencias
+                npm install
+
+            # Construir el frontend
+                npm run build -- --configuration production
+
+            # Iniciar el servidor frontend para servir archivos estáticos
+                npm start
+
+
+##Pasos: Ejecutar en desarrollo y producción desde el archivo principal:
+
+    #Para Desarrollo:
+        --Para iniciar el backend y frontend en modo desarrollo desde el archivo principal:
+            npm run start:dev
+
+    #Para Producción:
+        --Para iniciar el backend y frontend en modo producción desde el archivo principal:
+            npm start
+
+    #Para Depuración:
+        --Para depurar el backend:
+            npm run debug-api
+
+        --Para depurar el frontend:
+            npm run debug-frontend

@@ -1,0 +1,16 @@
+<div class="lista-container">
+  <div class="header">
+    <h2>Presupuesto</h2>
+    <input type="text" [(ngModel)]="categoriaInput" placeholder="Categoría">
+    <input type="number" [(ngModel)]="limiteInput" placeholder="Límite mensual">
+    <button (click)="agregarCategoria()">Agregar Categoría</button>
+  </div>
+  <div class="list-content">
+    <ul>
+      <li *ngFor="let categoria of categorias; let i = index">
+        <span class="item-content">{{ categoria.nombre }}: {{ categoria.limite.toFixed(2) }} €</span>
+        <span class="delete" (click)="eliminarCategoria(i)">✗</span>
+      </li>
+    </ul>
+  </div>
+</div>

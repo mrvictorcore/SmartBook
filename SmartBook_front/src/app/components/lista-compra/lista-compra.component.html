@@ -1,0 +1,15 @@
+<div class="lista-container">
+  <div class="header">
+    <h2>Lista de Compra</h2>
+    <input type="text" [(ngModel)]="itemInput" placeholder="Agregar ítem...">
+    <button (click)="agregarItem()">Agregar</button>
+  </div>
+  <div class="list-content">
+    <ul>
+      <li *ngFor="let item of listaCompra; let i = index">
+        <span class="item-content">{{ item }}</span>
+        <span class="delete" (click)="eliminarItem(i)">✗</span>
+      </li>
+    </ul>
+  </div>
+</div>

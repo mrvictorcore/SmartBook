@@ -1,0 +1,42 @@
+<div class="notebook-container">
+  <div class="notebook">
+    <div class="notebook-binding">
+      <div class="buckle"></div>
+      <div class="buckle"></div>
+      <div class="buckle"></div>
+    </div>
+    <div class="page">
+      <ng-container *ngIf="currentTab === 'ListaCompra'">
+        <app-lista-compra></app-lista-compra>
+      </ng-container>
+      <ng-container *ngIf="currentTab === 'Cartera'">
+        <app-cartera></app-cartera>
+      </ng-container>
+      <ng-container *ngIf="currentTab === 'Notas'">
+        <app-notas></app-notas>
+      </ng-container>
+      <ng-container *ngIf="currentTab === 'Calendario'">
+        <app-calendario></app-calendario>
+      </ng-container>
+      <ng-container *ngIf="currentTab === 'Recordatorios'">
+        <app-recordatorios></app-recordatorios>
+      </ng-container>
+      <ng-container *ngIf="currentTab === 'Presupuesto'">
+        <app-presupuesto></app-presupuesto>
+      </ng-container>
+      <ng-container *ngIf="currentTab === 'Objetivos'">
+        <app-objetivos></app-objetivos>
+      </ng-container>
+    </div>
+
+    <div class="tab">
+      <button class="tablinks" (click)="openTab('ListaCompra')">Lista de Compra</button>
+      <button class="tablinks" (click)="openTab('Cartera')">Cartera y Gastos</button>
+      <button class="tablinks" (click)="openTab('Notas')">Notas</button>
+      <button class="tablinks" (click)="openTab('Calendario')">Calendario</button>
+      <button class="tablinks" (click)="openTab('Recordatorios')">Recordatorios</button>
+      <button class="tablinks" (click)="openTab('Presupuesto')">Presupuesto</button>
+      <button class="tablinks" (click)="openTab('Objetivos')">Objetivos</button>
+    </div>      
+  </div>
+</div>

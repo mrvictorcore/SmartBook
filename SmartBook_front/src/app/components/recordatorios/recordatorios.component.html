@@ -1,0 +1,16 @@
+<div class="lista-container">
+  <div class="header">
+    <h2>Recordatorios</h2>
+    <input type="text" [(ngModel)]="recordatorioInput" placeholder="Nuevo recordatorio...">
+    <input type="date" [(ngModel)]="fechaRecordatorio">
+    <button (click)="agregarRecordatorio()">Agregar Recordatorio</button>
+  </div>
+  <div class="list-content">
+    <ul>
+      <li *ngFor="let recordatorio of recordatorios; let i = index">
+        <span class="item-content">{{ recordatorio.fecha }}: {{ recordatorio.texto }}</span>
+        <span class="delete" (click)="eliminarRecordatorio(i)">✗</span>
+      </li>
+    </ul>
+  </div>
+</div>

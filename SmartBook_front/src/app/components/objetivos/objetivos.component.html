@@ -1,0 +1,16 @@
+<div class="lista-container">
+  <div class="header">
+    <h2>Objetivos de Ahorro</h2>
+    <input type="text" [(ngModel)]="objetivoInput" placeholder="Objetivo">
+    <input type="number" [(ngModel)]="montoObjetivoInput" placeholder="Monto objetivo">
+    <button (click)="agregarObjetivo()">Agregar Objetivo</button>
+  </div>
+  <div class="list-content">
+    <ul>
+      <li *ngFor="let objetivo of objetivos; let i = index">
+        <span class="item-content">{{ objetivo.nombre }}: {{ objetivo.monto.toFixed(2) }} €</span>
+        <span class="delete" (click)="eliminarObjetivo(i)">✗</span>
+      </li>
+    </ul>
+  </div>
+</div>

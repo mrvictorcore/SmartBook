@@ -1,0 +1,16 @@
+<div class="lista-container">
+    <div class="header">
+      <h2>Notas</h2>
+      <textarea [(ngModel)]="notas" rows="3" placeholder="Escribe tus notas aquí..."></textarea>
+      <button (click)="guardarNotas()">Guardar Nota</button>
+    </div>
+    <div class="list-content">
+      <ul>
+        <li *ngFor="let nota of listaNotas; let i = index">
+          <span class="item-content">{{ nota.texto }}</span>
+          <span class="delete" (click)="eliminarNota(i)">✗</span>
+        </li>
+      </ul>
+    </div>
+</div>
+  

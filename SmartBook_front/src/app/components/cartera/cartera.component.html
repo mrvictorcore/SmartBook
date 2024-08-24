@@ -1,0 +1,20 @@
+<div class="lista-container">
+  <div class="header">
+    <h2>Cartera y Gastos</h2>
+    <div>
+      <h3>Saldo Actual: <span id="saldoActual">{{ saldo.toFixed(2) }}</span> €</h3>
+      <input type="number" [(ngModel)]="montoInput" placeholder="Monto">
+      <button (click)="agregarFondos()">Agregar Fondos</button>
+      <button (click)="registrarGasto()">Registrar Gasto</button>
+    </div>
+    <h3>Historial de Transacciones</h3>
+  </div>
+  <div class="list-content">
+    <ul>
+      <li *ngFor="let transaccion of transacciones; let i = index">
+        <span class="item-content">{{ transaccion.fecha }} - {{ transaccion.tipo }}: {{ transaccion.monto.toFixed(2) }} €</span>
+        <span class="delete" (click)="eliminarTransaccion(i)">✗</span>
+      </li>
+    </ul>
+  </div>
+</div>

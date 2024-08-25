@@ -1,0 +1,22 @@
+<div class="lista-container">
+  <div class="header">
+    <h1>Iniciar Sesión</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="loginEmail">Correo Electrónico:</label>
+        <input type="email" id="loginEmail" formControlName="email" required>
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Contraseña:</label>
+        <input type="password" id="loginPassword" formControlName="password" required>
+      </div>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+  </div>
+  <div class="forgot-password">
+    <a [routerLink]="['/recuperar-password']" [class.active]="currentTab === 'RecuperarPassword'" (click)="openTab('RecuperarPassword')">¿Olvidaste tu contraseña?</a>
+  </div>
+  <div class="switch-form">
+    ¿No tienes una cuenta? <a [routerLink]="['/registro']" [class.active]="currentTab === 'Registro'" (click)="openTab('Registro')">Regístrate aquí</a>
+  </div>
+</div>

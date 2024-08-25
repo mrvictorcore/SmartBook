@@ -6,37 +6,27 @@
       <div class="buckle"></div>
     </div>
     <div class="page">
-      <ng-container *ngIf="currentTab === 'ListaCompra'">
-        <app-lista-compra></app-lista-compra>
-      </ng-container>
-      <ng-container *ngIf="currentTab === 'Cartera'">
-        <app-cartera></app-cartera>
-      </ng-container>
-      <ng-container *ngIf="currentTab === 'Notas'">
-        <app-notas></app-notas>
-      </ng-container>
-      <ng-container *ngIf="currentTab === 'Calendario'">
-        <app-calendario></app-calendario>
-      </ng-container>
-      <ng-container *ngIf="currentTab === 'Recordatorios'">
-        <app-recordatorios></app-recordatorios>
-      </ng-container>
-      <ng-container *ngIf="currentTab === 'Presupuesto'">
-        <app-presupuesto></app-presupuesto>
-      </ng-container>
-      <ng-container *ngIf="currentTab === 'Objetivos'">
-        <app-objetivos></app-objetivos>
-      </ng-container>
+      <router-outlet></router-outlet>
     </div>
 
     <div class="tab">
-      <button class="tablinks" (click)="openTab('ListaCompra')">Lista de Compra</button>
-      <button class="tablinks" (click)="openTab('Cartera')">Cartera y Gastos</button>
-      <button class="tablinks" (click)="openTab('Notas')">Notas</button>
-      <button class="tablinks" (click)="openTab('Calendario')">Calendario</button>
-      <button class="tablinks" (click)="openTab('Recordatorios')">Recordatorios</button>
-      <button class="tablinks" (click)="openTab('Presupuesto')">Presupuesto</button>
-      <button class="tablinks" (click)="openTab('Objetivos')">Objetivos</button>
+      <ng-container *ngIf="!isLoggedIn">
+        <button class="tablinks" [routerLink]="['/login']" [class.active]="currentTab === 'Login'" (click)="setCurrentTab('Login')">Login</button>
+        <button class="tablinks" [routerLink]="['/registro']" [class.active]="currentTab === 'Registro'" (click)="setCurrentTab('Registro')">Registro</button>
+        <button class="tablinks" [routerLink]="['/recuperar-password']" [class.active]="currentTab === 'RecuperarPassword'" (click)="setCurrentTab('RecuperarPassword')">Recuperar</button>
+        <button class="tablinks" [routerLink]="['/verificar-email']" [class.active]="currentTab === 'VerificarEmail'" (click)="setCurrentTab('VerificarEmail')">Verificar</button>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn">
+        <button class="tablinks" [routerLink]="['/notebook/lista-compra']" [class.active]="currentTab === 'ListaCompra'" (click)="setCurrentTab('ListaCompra')">Lista de Compra</button>
+        <button class="tablinks" [routerLink]="['/notebook/cartera']" [class.active]="currentTab === 'Cartera'" (click)="setCurrentTab('Cartera')">Cartera y Gastos</button>
+        <button class="tablinks" [routerLink]="['/notebook/notas']" [class.active]="currentTab === 'Notas'" (click)="setCurrentTab('Notas')">Notas</button>
+        <button class="tablinks" [routerLink]="['/notebook/calendario']" [class.active]="currentTab === 'Calendario'" (click)="setCurrentTab('Calendario')">Calendario</button>
+        <button class="tablinks" [routerLink]="['/notebook/recordatorios']" [class.active]="currentTab === 'Recordatorios'" (click)="setCurrentTab('Recordatorios')">Recordatorios</button>
+        <button class="tablinks" [routerLink]="['/notebook/presupuesto']" [class.active]="currentTab === 'Presupuesto'" (click)="setCurrentTab('Presupuesto')">Presupuesto</button>
+        <button class="tablinks" [routerLink]="['/notebook/objetivos']" [class.active]="currentTab === 'Objetivos'" (click)="setCurrentTab('Objetivos')">Objetivos</button>
+        <button class="tablinks" (click)="logout()">Logout</button>
+      </ng-container>
     </div>
   </div>
 </div>

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../user-management/auth.service';
+import { Router } from '@angular/router';
+import { TabStateService } from './tab-state.service';
 
 @Component({
   selector: 'app-notebook',
@@ -6,9 +9,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./notebook.component.css']
 })
 export class NotebookComponent {
-  currentTab: string = 'ListaCompra';
+  isLoggedIn: boolean;
 
-  openTab(tabName: string): void {
-    this.currentTab = tabName;
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private tabStateService: TabStateService
+  ) {
+    this.isLoggedIn = this.authService.isLoggedIn();
+    if (this.isLoggedIn) {
+      this.router.navigate(['/notebook/lista-compra']);
+      this.tabStateService.setCurrentTab('ListaCompra');
+    } else {
+      this.router.navigate(['/login']);
+      this.tabStateService.setCurrentTab('Login');
+    }
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.isLoggedIn = false;
+    this.tabStateService.setCurrentTab('Login');
+    this.router.navigate(['/login']);
+  }
+
+  get currentTab(): string {
+    return this.tabStateService.getCurrentTab();
+  }
+
+  setCurrentTab(tabName: string): void {
+    this.tabStateService.setCurrentTab(tabName);
   }
 }

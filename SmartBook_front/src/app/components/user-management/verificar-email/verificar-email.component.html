@@ -1,0 +1,16 @@
+<div class="lista-container">
+  <div class="header">
+    <h1>Verificar Email</h1>
+    <form [formGroup]="verificarTokenForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="verificarToken">Correo Electrónico:</label>
+        <input type="text" id="verificarToken" formControlName="token" placeholder="Correo de Verificación" required>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+  <div class="switch-form">
+    <a [routerLink]="['/login']" [class.active]="currentTab === 'Login'" (click)="openTab('Login')">Volver al inicio de sesión</a>
+  </div>
+</div>
+  

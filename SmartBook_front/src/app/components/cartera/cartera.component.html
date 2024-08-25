@@ -1,8 +1,8 @@
 <div class="lista-container">
   <div class="header">
-    <h2>Cartera y Gastos</h2>
+    <h1>Cartera y Gastos</h1>
     <div>
-      <h3>Saldo Actual: <span id="saldoActual">{{ saldo.toFixed(2) }}</span> €</h3>
+      <h2>Saldo Actual: <span id="saldoActual">{{ saldo.toFixed(2) }}</span> €</h2>
       <form [formGroup]="carteraForm">
         <input type="number" formControlName="montoInput" placeholder="Monto">
         <button type="button" (click)="agregarFondos()">Agregar Fondos</button>

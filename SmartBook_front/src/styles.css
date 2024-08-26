@@ -295,26 +295,6 @@ h3 {
     background: transparent;
 }
 
-input[type="text"], input[type="number"], textarea {
-    width: calc(100% - 80px);
-    padding: 8px;
-    margin: 5px 0;
-    box-sizing: border-box;
-    border: 1px solid #88a;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px; /* Tamaño de fuente ajustado */
-}
-
-input[type="date" i] {
-    font-family: monospace;
-    padding-inline-start: 1px;
-    cursor: default;
-    padding: 0px;
-    overflow: hidden;
-    margin: 0 10px 0 0;
-}
-
 button {
     background-color: #88a;
     color: white;
@@ -411,7 +391,7 @@ li {
     background-color: transparent;
 }
 
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], textarea {
     width: calc(100% - 20px);
     padding: 8px;
     margin: 10px 0;
@@ -421,6 +401,16 @@ input[type="text"], input[type="password"], input[type="email"] {
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
 }
+
+input[type="date" i] {
+    font-family: monospace;
+    padding-inline-start: 1px;
+    cursor: default;
+    padding: 0px;
+    overflow: hidden;
+    margin: 0 10px 0 0;
+}
+
 button[type="submit"], .btn {
     background-color: #88a;
     color: white;

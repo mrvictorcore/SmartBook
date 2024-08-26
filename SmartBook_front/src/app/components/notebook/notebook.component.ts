@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../user-management/auth.service';
 import { Router } from '@angular/router';
 import { TabStateService } from './tab-state.service';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-notebook',

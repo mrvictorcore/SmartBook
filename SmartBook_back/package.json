@@ -1,8 +1,8 @@
 {
-  "name": "back-myhomestock",
+  "name": "smartbook_back",
   "version": "1.0.0",
   "type": "module",
-  "description": "Esta es una aplicación para el control del Stock de productos del Hogar",
+  "description": "Esta es una aplicación para la gestión de la economía y desarrollo de objetivos personales",
   "main": "server.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node server.js",

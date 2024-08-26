@@ -7,11 +7,11 @@ import { CalendarioComponent } from './components/calendario/calendario.componen
 import { RecordatoriosComponent } from './components/recordatorios/recordatorios.component';
 import { PresupuestoComponent } from './components/presupuesto/presupuesto.component';
 import { ObjetivosComponent } from './components/objetivos/objetivos.component';
-import { LoginComponent } from './components/user-management/login/login.component';
-import { RecuperarPasswordComponent } from './components/user-management/recuperar-password/recuperar-password.component';
-import { RegistroComponent } from './components/user-management/registro/registro.component';
-import { VerificarEmailComponent } from './components/user-management/verificar-email/verificar-email.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './components/auth/guards/auth.guard';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RecuperarPasswordComponent } from './components/auth/recuperar-password/recuperar-password.component';
+import { RegistroComponent } from './components/auth/registro/registro.component';
+import { VerificarEmailComponent } from './components/auth/verificar-email/verificar-email.component';
 
 export const routes: Routes = [
   {

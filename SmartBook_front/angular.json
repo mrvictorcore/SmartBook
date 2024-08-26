@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "EasyShopping": {
+    "SmartBook": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/easy-shopping",
+            "outputPath": "dist/SmartBook",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "EasyShopping:build:production"
+              "buildTarget": "SmartBook:build:production"
             },
             "development": {
-              "buildTarget": "EasyShopping:build:development"
+              "buildTarget": "SmartBook:build:development"
             }
           },
           "defaultConfiguration": "development"

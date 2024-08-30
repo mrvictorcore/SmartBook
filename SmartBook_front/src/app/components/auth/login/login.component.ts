@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TabStateService } from '../../notebook/tab-state.service';
+import { TabStateService } from '../../notebook/services/tab-state.service';
 
 @Component({
   selector: 'app-login',

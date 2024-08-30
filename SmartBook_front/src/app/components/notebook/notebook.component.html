@@ -11,12 +11,12 @@
 
     <div class="tab">
       <ng-container *ngIf="!isLoggedIn">
-        <button class="tablinks" [routerLink]="['/login']" [class.active]="currentTab === 'Login'" (click)="setCurrentTab('Login')">Login</button>
-        <button class="tablinks" [routerLink]="['/registro']" [class.active]="currentTab === 'Registro'" (click)="setCurrentTab('Registro')">Registro</button>
-        <button class="tablinks" [routerLink]="['/recuperar-password']" [class.active]="currentTab === 'RecuperarPassword'" (click)="setCurrentTab('RecuperarPassword')">Recuperar</button>
-        <button class="tablinks" [routerLink]="['/verificar-email']" [class.active]="currentTab === 'VerificarEmail'" (click)="setCurrentTab('VerificarEmail')">Verificar</button>
+        <button class="tablinks" [routerLink]="['/notebook/auth/login']" [class.active]="currentTab === 'Login'" (click)="setCurrentTab('Login')">Login</button>
+        <button class="tablinks" [routerLink]="['/notebook/auth/registro']" [class.active]="currentTab === 'Registro'" (click)="setCurrentTab('Registro')">Registro</button>
+        <button class="tablinks" [routerLink]="['/notebook/auth/recuperar-password']" [class.active]="currentTab === 'RecuperarPassword'" (click)="setCurrentTab('RecuperarPassword')">Recuperar</button>
+        <button class="tablinks" [routerLink]="['/notebook/auth/verificar-email']" [class.active]="currentTab === 'VerificarEmail'" (click)="setCurrentTab('VerificarEmail')">Verificar</button>
       </ng-container>
-
+    
       <ng-container *ngIf="isLoggedIn">
         <button class="tablinks" [routerLink]="['/notebook/lista-compra']" [class.active]="currentTab === 'ListaCompra'" (click)="setCurrentTab('ListaCompra')">Lista de Compra</button>
         <button class="tablinks" [routerLink]="['/notebook/cartera']" [class.active]="currentTab === 'Cartera'" (click)="setCurrentTab('Cartera')">Cartera y Gastos</button>

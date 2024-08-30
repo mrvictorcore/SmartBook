@@ -14,9 +14,9 @@
     </form>
   </div>
   <div class="forgot-password">
-    <a [routerLink]="['/recuperar-password']" [class.active]="currentTab === 'RecuperarPassword'" (click)="openTab('RecuperarPassword')">¿Olvidaste tu contraseña?</a>
+    <a [routerLink]="['/notebook/auth/recuperar-password']" [class.active]="currentTab === 'RecuperarPassword'" (click)="openTab('RecuperarPassword')">¿Olvidaste tu contraseña?</a>
   </div>
   <div class="switch-form">
-    ¿No tienes una cuenta? <a [routerLink]="['/registro']" [class.active]="currentTab === 'Registro'" (click)="openTab('Registro')">Regístrate aquí</a>
+    ¿No tienes una cuenta? <a [routerLink]="['/notebook/auth/registro']" [class.active]="currentTab === 'Registro'" (click)="openTab('Registro')">Regístrate aquí</a>
   </div>
 </div>

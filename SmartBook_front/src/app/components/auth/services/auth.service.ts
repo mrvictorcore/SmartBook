@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  private isAuthenticated = true;
+  private isAuthenticated = false;
 
   constructor() { }
 
@@ -19,6 +19,8 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return this.isAuthenticated || !!localStorage.getItem('authToken');
+    const loggedIn = this.isAuthenticated || !!localStorage.getItem('authToken');
+    console.log('AuthService.isLoggedIn:', loggedIn);
+    return loggedIn;
   }
 }

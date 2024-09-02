@@ -5,14 +5,10 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import categoriaRoutes from './src/routes/categoria.routes.js';
-import CompraProductoRoutes from './src/routes/compra_producto.routes.js';
-import productoRoutes from './src/routes/producto.routes.js';
-import TipoCategoriaRoutes from './src/routes/tipo_categoria.routes.js';
-import compraRoutes from './src/routes/compra.routes.js';
-import usuarioRoutes from './src/routes/usuario.routes.js';
-import unidadMedidaRoutes from './src/routes/unidad_medida.routes.js';
 import { getConnection } from './config/db.config.js';
+
+// Rutas
+import usuarioRoutes from './src/routes/usuario.routes.js';
 
 const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development';
 dotenv.config({ path: envFile });
@@ -36,9 +32,9 @@ const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'MyHomeStock API',
+      title: 'SmartBook API',
       version: '1.0.0',
-      description: 'API para gestionar el stock de productos del hogar',
+      description: 'API para realizar lista de compra y poder llevar un control financiero',
     },
     servers: [
       {
@@ -53,7 +49,7 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.get('/', (req, res) => {
-  res.send("¡Bienvenido a la API de MyHomeStock!");
+  res.send("¡Bienvenido a la API de SmartBook!");
 });
 
 app.get('/test', async (req, res) => {
@@ -67,13 +63,14 @@ app.get('/test', async (req, res) => {
 });
 
 // Enrutamientos
-app.use('/api/v1/categoria', categoriaRoutes);
-app.use('/api/v1/compra_producto', CompraProductoRoutes);
-app.use('/api/v1/producto', productoRoutes);
-app.use('/api/v1/tipo_categoria', TipoCategoriaRoutes);
-app.use('/api/v1/compra', compraRoutes);
+app.use('/api/v1/calendario', calendarioRoutes);
+app.use('/api/v1/cartera', carteraRoutes);
+app.use('/api/v1/lista-compra', listaCompraRoutes);
+app.use('/api/v1/notas', notasRoutes);
+app.use('/api/v1/objetivos', objetivosRoutes);
+app.use('/api/v1/presupuesto', presupuestoRoutes);
+app.use('/api/v1/recordatorios', recordatoriosRoutes);
 app.use('/api/v1/usuario', usuarioRoutes);
-app.use('/api/v1/unidad_medida', unidadMedidaRoutes);
 
 // Middleware de manejo de errores global
 app.use((err, req, res, next) => {
